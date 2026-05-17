@@ -33,6 +33,19 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = ""
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = { "de", "en" }
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+    end,
+})
+
 vim.opt.fillchars:append("vert:┃")
 vim.opt.fillchars:append("horiz:━")
   
